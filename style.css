@@ -1,0 +1,250 @@
+:root {
+  --fundo: #f4f6fb;
+  --cartao: #ffffff;
+  --texto: #1f2937;
+  --suave: #6b7280;
+  --primaria: #1d4ed8;
+  --primaria-escura: #1e3a8a;
+  --erro: #b91c1c;
+  --sucesso: #15803d;
+  --borda: #d1d5db;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+.topo {
+  background: var(--primaria-escura);
+  color: #fff;
+  text-align: center;
+  padding: 24px 16px;
+}
+.topo h1 { margin: 0; font-size: 1.8rem; }
+.topo p { margin: 4px 0 0; opacity: 0.85; }
+
+.container {
+  max-width: 640px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  gap: 20px;
+}
+
+.cartao {
+  background: var(--cartao);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.cartao h2 { margin-top: 0; font-size: 1.2rem; }
+
+.campo { margin-bottom: 16px; }
+label { display: block; font-weight: 600; margin-bottom: 6px; }
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: #fff;
+}
+input:focus { outline: 2px solid var(--primaria); border-color: var(--primaria); }
+input:disabled { background: #eef0f4; color: var(--suave); }
+input.invalido { border-color: var(--erro); }
+
+.erro { display: block; color: var(--erro); min-height: 1em; margin-top: 4px; }
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primaria);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: var(--primaria-escura); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.mensagem { margin: 12px 0 0; font-weight: 600; min-height: 1.4em; }
+.mensagem.ok { color: var(--sucesso); }
+.mensagem.falha { color: var(--erro); }
+
+.contador {
+  display: inline-block;
+  background: var(--primaria);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0 10px;
+  font-size: 0.85rem;
+  margin-left: 6px;
+}
+.ajuda { color: var(--suave); font-size: 0.9rem; margin-top: 0; }
+
+.lista { list-style: none; margin: 0; padding: 0; }
+.lista li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eceff4;
+}
+.lista li:last-child { border-bottom: 0; }
+.lista .nasc { color: var(--suave); white-space: nowrap; }
+.lista .vazio { color: var(--suave); justify-content: center; }
+.lista .dados {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  font-size: 0.82rem;
+  color: var(--suave);
+}
+.lista .dados span { overflow-wrap: anywhere; }
+
+/* ---- Título digital (etapa 3) ---- */
+.estado {
+  background: var(--cartao);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.titulo {
+  background: #fff;
+  border: 2px solid var(--primaria-escura);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.titulo-topo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 16px;
+  background: var(--primaria-escura);
+  color: #fff;
+}
+.titulo-topo span { font-size: 0.85rem; opacity: 0.85; }
+
+.titulo-dados {
+  margin: 0;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+}
+.campo-titulo.largo { grid-column: 1 / -1; }
+.campo-titulo dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--suave);
+}
+.campo-titulo dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.titulo-qr {
+  padding: 16px;
+  text-align: center;
+  border-top: 1px dashed var(--borda);
+}
+.titulo-qr svg {
+  display: block;
+  width: min(220px, 70vw);
+  height: auto;
+  margin: 0 auto 10px;
+  border: 1px solid #e5e7eb;
+}
+.uuid {
+  margin: 0 0 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  color: var(--suave);
+  overflow-wrap: anywhere;
+}
+.titulo-link { display: inline-block; margin-top: 4px; color: var(--primaria); font-size: 0.9rem; }
+.aviso-local {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.82rem;
+  background: #fff7ed;
+  border-left: 4px solid #f59e0b;
+  border-radius: 4px;
+}
+
+/* ---- Administração / PDF (etapa 4) ---- */
+.mensagem a { color: inherit; margin-left: 6px; }
+
+/* ---- Painel administrativo (etapa 5) ---- */
+.container.largo { max-width: 1100px; }
+.cartao-login { width: 100%; max-width: 420px; margin: 0 auto; }
+
+.admin-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.admin-total strong { display: block; font-size: 2.2rem; line-height: 1; color: var(--primaria-escura); }
+.admin-total span { color: var(--suave); }
+.admin-acoes { display: flex; flex-wrap: wrap; gap: 10px; }
+.admin-acoes button { width: auto; padding: 12px 18px; }
+
+button.secundario, a.btn-tabela.secundario {
+  color: var(--primaria);
+  background: #fff;
+  border: 1px solid var(--primaria);
+}
+button.secundario:hover:not(:disabled) { background: #eef2ff; }
+
+.tabela-rolagem { overflow-x: auto; }
+.tabela { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.tabela th, .tabela td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #eceff4;
+  vertical-align: middle;
+}
+.tabela th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--suave);
+  white-space: nowrap;
+}
+.tabela td.num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tabela td.vazio { text-align: center; color: var(--suave); padding: 20px; }
+.tabela .acoes { display: flex; gap: 8px; }
+.btn-tabela {
+  display: inline-block;
+  width: auto;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #fff;
+  background: var(--primaria);
+}
