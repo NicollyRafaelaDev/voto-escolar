@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Título de Eleitor - Voto Escolar</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topo">
+    <h1>Voto Escolar</h1>
+    <p>Título de eleitor digital</p>
+  </header>
+
+  <main class="container">
+    <p id="estado" class="estado" role="status" aria-live="polite">Carregando título...</p>
+    <div id="titulo-container" hidden></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/titulo-ui.js"></script>
+  <script src="js/titulo-page.js"></script>
+</body>
+</html>
